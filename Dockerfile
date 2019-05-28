@@ -10,7 +10,8 @@ RUN \
  rm /etc/nginx/conf.d/default.conf && \
  chmod +x /entrypoint.sh && \
  chmod +x /le.sh && \
- apk add  --update certbot tzdata openssl && \
- rm -rf /var/cache/apk/*
+ apk add  --update certbot tzdata openssl gcc python2-dev musl-dev libffi-dev openssl-dev py2-pip && \
+ rm -rf /var/cache/apk/* && \
+ pip install certbot-dns-dnsimple
 
 CMD ["/entrypoint.sh"]
